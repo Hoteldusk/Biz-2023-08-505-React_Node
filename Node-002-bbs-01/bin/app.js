@@ -16,15 +16,23 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
+// MySQL Sequelize
+import DB from "../models/index.js";
+
 // sample router modules
 import indexRouter from "../routes/index.js";
 import usersRouter from "../routes/users.js";
+import bbsRouter from "../routes/bbs.js";
 
 // create express framework
 const app = express();
 
 // helmet security module
 app.use(helmet());
+
+DB.sequelize.sync({ force: false }).then((dbConn) => {
+  console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
+});
 
 // Disable the fingerprinting of this web technology.
 app.disable("x-powered-by");
@@ -41,8 +49,9 @@ app.use(cookieParser());
 app.use(express.static(path.join("public")));
 
 // router link enable
-app.use("/home", indexRouter);
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/bbs", bbsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
