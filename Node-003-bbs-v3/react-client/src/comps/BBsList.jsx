@@ -1,23 +1,28 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useBBsContext } from "../provider/BBsProvider";
 import css from "../css/BBsList.module.css";
 
+const sampleData = [
+  { b_seq: 0, b_nickname: "홍길동", b_title: "활빈당" },
+  { b_seq: 1, b_nickname: "이몽룡", b_title: "남원부사" },
+  { b_seq: 2, b_nickname: "성춘향", b_title: "광환루" },
+  { b_seq: 3, b_nickname: "임꺽정", b_title: "황해도 대도" },
+  { b_seq: 4, b_nickname: "장녹수", b_title: "여걸" },
+];
 const BBsList = () => {
-  const navigate = useNavigate();
-
-  const [bbsList, setBbsList] = useState([
-    { b_seq: 0, b_nickname: "홍길동", b_title: "마린" },
-    { b_seq: 1, b_nickname: "이몽룡", b_title: "파이어뱃" },
-    { b_seq: 2, b_nickname: "성춘향", b_title: "마린메딕" },
-    { b_seq: 3, b_nickname: "임꺽정", b_title: "벌쳐" },
-    { b_seq: 4, b_nickname: "장녹수", b_title: "시즈탱크" },
-  ]);
+  const { bbsList, setBBsList } = useBBsContext();
 
   const bbsItems = bbsList.map((bbs) => {
     return (
       <tr key={bbs.b_seq} data-seq={bbs.b_seq}>
         <td>{bbs.b_seq}</td>
-        <td>{bbs.b_nickname}</td>
+        <td>
+          <img
+            src={`/static/upload/${bbs.b_image}`}
+            width="50px"
+            alt={bbs.b_origin_name}
+          />
+          <span>{bbs.b_nickname}</span>
+        </td>
         <td>{bbs.b_title}</td>
         <td>0</td>
       </tr>
@@ -31,16 +36,6 @@ const BBsList = () => {
   str => "1 2 3 4 5 6" 과 같은 문자열을 만들어 낸다
   */
 
-  const tableClickHandler = (e) => {
-    const target = e.target;
-    // target 의 부모 중에서 가장 가까이 있는 TR 이 누구냐
-    const tr = target.closest("TR");
-    // data-seq 로 설정한 데이터 가져오기
-    // alert(tr.dataset.seq);
-
-    navigate(`/bbs/detail/${tr.dataset.seq}`);
-  };
-
   return (
     <>
       <table className={css.main}>
@@ -52,16 +47,8 @@ const BBsList = () => {
             <th>조회수</th>
           </tr>
         </thead>
-        <tbody onClick={tableClickHandler}>{bbsItems}</tbody>
+        <tbody>{bbsItems}</tbody>
       </table>
-      <div className={css.main}>
-        <NavLink
-          to="/bbs/insert"
-          className={[css.link, css.hover, "test"].join(" ")}
-        >
-          추가하기
-        </NavLink>
-      </div>
     </>
   );
 };

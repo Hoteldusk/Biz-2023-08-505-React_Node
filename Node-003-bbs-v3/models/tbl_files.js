@@ -38,7 +38,7 @@ export default (sequelize) => {
           fields: [{ name: "f_seq" }],
         },
         {
-          name: "f_bbs",
+          name: "F_BBS",
           using: "BTREE",
           fields: [{ name: "f_bseq" }],
         },

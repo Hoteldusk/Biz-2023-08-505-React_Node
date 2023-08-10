@@ -20,6 +20,5 @@ export default {
     database: "imageDB",
     host: "127.0.0.1",
     dialect: "mysql",
-    logging: true,
   },
 };

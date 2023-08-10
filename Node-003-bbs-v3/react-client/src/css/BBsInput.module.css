@@ -3,7 +3,6 @@ private css 코딩
 css 파일을 .module.css 이름으로 변경
 BBS 컴포넌트에서 사용할 css 라면 BBs.module.css 처럼 생성
 이 파일의 모든 select 의 시작은 클래스
-
 */
 .main {
   width: 80%;
@@ -43,11 +42,13 @@ BBS 컴포넌트에서 사용할 css 라면 BBs.module.css 처럼 생성
 }
 
 .input_container input:focus {
-  background-color: #aaa;
+  background-color: #eee;
 }
+
 .input_container input:hover {
   border: 1px solid #777;
 }
+
 .image_box input {
   display: none;
 }
@@ -55,11 +56,11 @@ BBS 컴포넌트에서 사용할 css 라면 BBs.module.css 처럼 생성
 .image_box label {
   display: inline-block;
   width: 80%;
-  background-color: #9cedfb;
-  color: rgb(94, 88, 84);
+  padding: 5px;
+  background-color: #ddd;
+  color: blue;
   font-weight: bold;
   text-align: center;
-  padding: 5px;
   cursor: pointer;
 }
 
@@ -73,15 +74,14 @@ BBS 컴포넌트에서 사용할 css 라면 BBs.module.css 처럼 생성
 }
 
 .button button {
-  background-color: #9cedfb;
+  background-color: blue;
   color: white;
-  padding: 12px 16px;
+  padding: 12px 20px;
   outline: none;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
-
 .button button:hover {
-  background-color: #16aafa;
+  box-shadow: 2px 2px 2px 2px black;
 }

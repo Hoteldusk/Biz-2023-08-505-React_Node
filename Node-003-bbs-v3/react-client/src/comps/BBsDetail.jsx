@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-const BBsDetail = ({ match }) => {
+
+const BBsDetail = () => {
   const { seq } = useParams();
   return (
     <>
@@ -8,4 +9,5 @@ const BBsDetail = ({ match }) => {
     </>
   );
 };
+
 export default BBsDetail;
