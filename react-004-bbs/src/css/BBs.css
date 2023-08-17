@@ -4,6 +4,7 @@ div.image {
   width: 80%;
   margin: 10px auto;
 }
+
 input {
   display: none;
 }
@@ -15,17 +16,15 @@ label {
 }
 div.thumb {
   display: flex;
+  flex-wrap: wrap;
   border: 1px solid blue;
 }
-div.thumb.main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 div.input {
   display: flex;
   flex-direction: column;
 }
+
 div.input input {
-  display: inline;
+  display: inline-block;
 }

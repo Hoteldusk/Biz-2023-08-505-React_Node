@@ -11,6 +11,5 @@ export const BBsDto = {
   // 대표이미지
   b_image: "",
   b_origin_image: "",
-
   m_files: [],
 };

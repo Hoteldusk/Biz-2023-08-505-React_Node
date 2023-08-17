@@ -1,4 +1,4 @@
-import logo from "./sigong.png";
+import logo from "./logo.svg";
 import "./css/App.css";
 import BBsMain from "./comps/BBsMain";
 
