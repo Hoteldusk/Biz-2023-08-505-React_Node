@@ -1,13 +1,19 @@
-import { Button, Form, InputDiv } from "../styled/BBsStyled";
-const BBsInput = ({ bbsDto, setBbsDto }) => {
+import { InputDiv } from "../styled/BBsStyled";
+import { Button } from "../styled/MyButton";
+
+const BBsInput = ({ bbsDto, setBbsDto, bbsInput }) => {
   const inputOnChange = (e) => {
     const { name, value } = e.target;
-
+    console.log(name, value);
     setBbsDto({ ...bbsDto, [name]: value });
   };
 
+  const btnOnClickHandler = () => {
+    bbsInput();
+  };
+
   return (
-    <Form>
+    <>
       <InputDiv>
         <label htmlFor="">작성자</label>
         <input
@@ -35,8 +41,10 @@ const BBsInput = ({ bbsDto, setBbsDto }) => {
           onChange={inputOnChange}
         />
       </InputDiv>
-      <Button type="button" />
-    </Form>
+      <Button type="button" onClick={btnOnClickHandler}>
+        저장
+      </Button>
+    </>
   );
 };
 

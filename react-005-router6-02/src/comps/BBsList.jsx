@@ -1,5 +1,4 @@
 import { Table } from "../styled/BBsStyled";
-
 const BBsList = ({ children }) => {
   return (
     <Table>
