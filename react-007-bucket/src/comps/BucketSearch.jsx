@@ -4,7 +4,8 @@ import { Form } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledInputDiv = styled.div`
-  margin: 0;
+  width: 80%;
+  margin: 5px auto;
   height: 70px;
   display: flex;
   align-items: center;

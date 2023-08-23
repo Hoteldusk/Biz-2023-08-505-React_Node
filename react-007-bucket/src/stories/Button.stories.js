@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import Button from "../shareComps/Button";
-
 const Container = styled.div`
   width: 200px;
 `;
-
 export default {
-  title: "커스텀버튼",
+  title: "커스텀 버튼",
   component: [Button],
 };
 

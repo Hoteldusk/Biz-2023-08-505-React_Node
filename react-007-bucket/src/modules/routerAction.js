@@ -1,5 +1,6 @@
 import uuid from "react-uuid";
-const sampleBucketList = ["개발자 되기", "리액트 정복", "Spring 정복"];
+
+const sampleBucketList = ["개발자되기", "리액트 정복", "Spring 정복"];
 
 export const bucketLoader = () => {
   /**
