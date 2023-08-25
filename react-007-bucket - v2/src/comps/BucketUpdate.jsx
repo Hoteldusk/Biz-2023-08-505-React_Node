@@ -1,12 +1,7 @@
-import {
-  Form,
-  useLoaderData,
-  redirect,
-  useSubmit,
-} from "react-router-dom";
+import { Form, useLoaderData, redirect, useSubmit } from "react-router-dom";
 import css from "./BucketUpdate.module.scss";
 import Button from "../shareComps/Button";
-import { getBucket, saveBucket } from "../modules/bucketFech";
+import { getBucket, saveBucket } from "../modules/firebaseDBProvider";
 import dImage from "../assets/default.png";
 import { useRef } from "react";
 
@@ -75,19 +70,11 @@ const BucketUpdate = () => {
         />
         <div>
           <label htmlFor="">작성일자</label>
-          <input
-            type="date"
-            name="sdate"
-            defaultValue={bucket.sdate}
-          />
+          <input type="date" name="sdate" defaultValue={bucket.sdate} />
         </div>
         <div>
           <label htmlFor="">작성시각</label>
-          <input
-            type="time"
-            name="stime"
-            defaultValue={bucket.stime}
-          />
+          <input type="time" name="stime" defaultValue={bucket.stime} />
         </div>
         <div>
           <label htmlFor="">하고싶은일</label>
@@ -98,11 +85,7 @@ const BucketUpdate = () => {
         </div>
       </article>
       <article className={css.image}>
-        <img
-          src={bucket.img_src || dImage}
-          alt=""
-          onClick={imageOnClick}
-        />
+        <img src={bucket.img_src || dImage} alt="" onClick={imageOnClick} />
       </article>
     </Form>
   );

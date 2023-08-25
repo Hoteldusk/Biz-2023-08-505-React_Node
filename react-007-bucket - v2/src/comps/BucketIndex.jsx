@@ -1,17 +1,29 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
+  width: 80%;
   height: 100%;
+
   display: flex;
   justify-content: center;
-  align-items: center;
 
   & div {
-    width: 80%;
+    border: 5px solid coral;
+    margin-right: 20%;
+    margin-top: 20px;
+    width: 25%;
+    height: 20%;
+    display: flex;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0px;
+
     & h1 {
-      color: blue;
-      text-shadow: 1px 1px 1px black;
+      color: coral;
+      /* text-shadow: 1px 1px 1px black; */
+      font-size: 40px;
     }
   }
 `;
