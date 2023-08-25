@@ -23,7 +23,7 @@
         margin: 5px;
       }
       & label {
-        // 최소 폭을 100px 로 제한하기
+        // 최소 폭을 150px 로 제한하기
         flex: 1 0 150px;
         text-align: right;
         color: #5f5fe7;
@@ -42,16 +42,14 @@
       justify-content: flex-end;
       & button {
         padding: 1rem 3rem;
-        text-align: center;
         width: 200px;
         border-radius: 2rem;
-        background-color: dodgerblue;
       }
     }
   }
   & article.image img {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
     margin-right: 2rem;
     border-radius: 1.2rem;
     object-fit: contain;

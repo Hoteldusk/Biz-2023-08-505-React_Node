@@ -25,6 +25,7 @@ export const newBucketDto = () => {
     stime: moment().format("HH:mm:ss"),
     bucket: "새로운 Bucket",
     complete: false,
+    favorite: false,
   };
   return bucketDto;
 };
@@ -92,9 +93,7 @@ export const newBucket = async () => {
 
 export const deleteBucket = async (id) => {
   const bucketList = await getBucketList();
-  const resultList = bucketList.filter((item) => {
-    return item.id !== id;
-  });
+  const resultList = bucketList.filter((item) => item.id !== id);
   await setBucketList(resultList);
 };
 
@@ -102,26 +101,4 @@ export const deleteBucket = async (id) => {
 export const setBucketList = async (bucketList) => {
   // bucketList 데이터를 JSON 데이터로 업데이트 하기
   return await localforage.setItem(LOCAL_DB, bucketList);
-};
-
-// 내가 만든 complete
-export const completeBucket = async (id) => {
-  // bucketList.bucket = bucketList.bucket + "(완료!)";
-  // await setBucketList(bucketList);
-  console.log("completeBucket method id", id);
-
-  const bucketList = await getBucketList();
-  console.log("completeBucket method bucketList", bucketList);
-
-  bucketList.map((item) => {
-    if (item.id === id) {
-      // console.log("item.id", item.id);
-      // if (item.bucket.indexOf("완료")) {
-      //   alert("이미 완료한 버킷입니다");
-      //   return "";
-      // }
-      item.bucket += "(완료)";
-    }
-  });
-  await setBucketList(bucketList);
 };

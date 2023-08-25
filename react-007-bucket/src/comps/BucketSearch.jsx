@@ -27,6 +27,7 @@ const BucketSearch = () => {
     const isFirstSearch = search == null;
     submit(e.currentTarget.form, { replace: !isFirstSearch });
   };
+
   return (
     <StyledInputDiv>
       <Form>

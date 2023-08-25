@@ -7,7 +7,12 @@ const BucketItem = ({ item }) => {
         to={`content/${item.id}`}
         className={({ isActive }) => (isActive ? "active" : "none")}
       >
-        <img src={item.img_src || dImage} alt="" width="30px" height="30px" />
+        <img
+          src={item.img_src || dImage}
+          alt=""
+          width="30px"
+          height="30px"
+        />
         <span className={item.complete ? "complete" : "none"}>
           {item.bucket}
         </span>

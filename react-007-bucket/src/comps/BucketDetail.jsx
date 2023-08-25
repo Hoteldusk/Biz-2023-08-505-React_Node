@@ -1,8 +1,17 @@
-import { Form, useLoaderData, redirect } from "react-router-dom";
+import {
+  Form,
+  useLoaderData,
+  redirect,
+  Navigate,
+} from "react-router-dom";
 import dImage from "../assets/default.png";
 import Button from "../shareComps/Button";
 import css from "./BucketDetail.module.scss";
-import { deleteBucket, getBucket, saveBucket } from "../modules/bucketFech";
+import {
+  deleteBucket,
+  getBucket,
+  saveBucket,
+} from "../modules/bucketFech";
 
 export const detailLoader = async ({ params }) => {
   // const id = params.id
@@ -14,6 +23,14 @@ export const detailLoader = async ({ params }) => {
   return { bucket };
 };
 
+export const completeAction = async ({ params }) => {
+  const bucket = await getBucket(params.id);
+  console.log("Bucket", bucket);
+  const completBucket = { ...bucket, complete: !bucket.complete };
+  await saveBucket(completBucket);
+  return redirect(`/content/${params.id}`);
+};
+
 export const deleteAction = async ({ params }) => {
   if (window.confirm("정말 삭제 할까요?")) {
     await deleteBucket(params.id);
@@ -22,28 +39,19 @@ export const deleteAction = async ({ params }) => {
   return redirect(`/content/${params.id}`);
 };
 
-export const completeAction = async ({ params }) => {
-  const bucket = await getBucket(params.id);
-  const completeBuckets = { ...bucket, complete: !bucket.complete };
-  await saveBucket(completeBuckets);
-
-  // await completeBucket(params.id);
-  return redirect(`/content/${params.id}`);
-};
-
-export const favoriteAction = async ([params, request]) => {
+export const favoriteAction = async ({ params, request }) => {
   const formData = await request.formData();
   const resultBucket = await getBucket(params.id);
   // formData() 데이터 중에서 input 에 저장된 데이터만 추출하기
   // const newBucket = Object.fromEntries(formData);
   const favorite = formData.get("favorite") === "true";
-  const upadateBucket = { ...resultBucket, favorite: !favorite };
-  await saveBucket(upadateBucket);
+  const updateBucket = { ...resultBucket, favoite: !favorite };
+  await saveBucket(updateBucket);
   return "";
 };
 
 const Favorite = ({ bucket }) => {
-  let favorite = bucket.favorite;
+  let favorite = bucket.favoite;
   return (
     <Form method="POST">
       <button name="favorite" value={favorite ? "true" : "false"}>

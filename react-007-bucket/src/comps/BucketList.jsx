@@ -2,12 +2,11 @@ import BucketItem from "./BucketItem";
 import css from "./BucketList.module.scss";
 import { useLoaderData } from "react-router-dom";
 import styled from "styled-components";
-
 const UL = styled.ul`
   & a.active {
     color: red;
   }
-  & span.complete {
+  & a span.complete {
     text-decoration: line-through;
   }
 `;

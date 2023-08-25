@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  /* width: 100%; */
-  height: 100%;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
 
   & div {
     width: 80%;
@@ -20,7 +18,7 @@ const Container = styled.div`
 
 const BucketIndex = () => {
   return (
-    <Container className="container">
+    <Container>
       <div>
         <h1>나의 버킷 리스트</h1>
       </div>

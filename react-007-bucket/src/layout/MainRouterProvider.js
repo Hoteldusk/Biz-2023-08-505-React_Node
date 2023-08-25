@@ -1,6 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-import BucketMain, { mainLoader, mainAction } from "../comps/BucketMain";
+import BucketMain, {
+  mainLoader,
+  mainAction,
+} from "../comps/BucketMain";
 
 // import { bucketLoader, bucketAction } from "../modules/routerAction";
 import BucketDetail, {
@@ -41,12 +47,12 @@ const router = createBrowserRouter([
         action: updateAction,
       },
       {
-        path: "content/:id/delete",
-        action: deleteAction,
-      },
-      {
         path: "content/:id/complete",
         action: completeAction,
+      },
+      {
+        path: "content/:id/delete",
+        action: deleteAction,
       },
     ],
   },

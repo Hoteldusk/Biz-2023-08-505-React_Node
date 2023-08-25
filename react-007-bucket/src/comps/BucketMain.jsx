@@ -10,6 +10,7 @@ const ASideBar = styled.aside`
   border-right: solid 2px #cccc;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 
 /**
